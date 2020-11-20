@@ -4,7 +4,7 @@ services:
     build: .
     environment:
       - NODE_ENV=development
-      - EMAIL_TRANSPORT=smtp
+      - EMAIL_TRANSPORT=stub
       - EMAIL_HOST=maildev
       - CASEWORKER_EMAIL=caseworker@gov.uk.test
       - IGNORE_TLS=true
@@ -13,49 +13,54 @@ services:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
       - PDF_CONVERTER_URL=http://html-pdf-converter:8001/convert
-
     links:
       - redis
       - maildev
       - html-pdf-converter
+    depends_on:
+      - redis
     ports:
       - "8080:8080"
     volumes:
       - "/public"
   redis:
     image: redis
-
-  nginx-proxy:
-    image: quay.io/ukhomeofficedigital/nginx-proxy-govuk:v3.0.0.0
+  acceptance:
+    build:
+      context: .
+      dockerfile: Dockerfile-acceptance
     environment:
-      - PROXY_SERVICE_HOST=app
-      - PROXY_SERVICE_PORT=8080
-      - NAXSI_USE_DEFAULT_RULES=FALSE
-      - CLIENT_MAX_BODY_SIZE=200
-      - ADD_NGINX_SERVER_CFG=add_header Cache-Control private;add_header X-Frame-Options "SAMEORIGIN" always;add_header X-Content-Type-Options "nosniff" always;add_header X-XSS-Protection "1; mode=block" always;location /public {add_header Cache-Control max-age=86400;add_header X-Frame-Options "SAMEORIGIN" always;add_header X-Content-Type-Options "nosniff" always;add_header X-XSS-Protection "1; mode=block" always;alias /public;}
-      - ERROR_REDIRECT_CODES=599
-    ports:
-      - "443:10443"
-      - "80:10080"
+      - SELENIUM_HOST=selenium
+      - EMAIL_TRANSPORT=stub
+      - TEST_URL=http://app:8080
+    depends_on:
+      - redis
+      - app
+      - maildev
+      - html-pdf-converter
+      - selenium
     links:
-      - app
-    volumes_from:
-      - app
-
+      - selenium
   maildev:
     image: djfarrelly/maildev
     ports:
       - "8000:80"
       - "25"
-
+    logging:
+      driver: "none"
   html-pdf-converter:
     image: quay.io/ukhomeofficedigital/html-pdf-converter:01442cbca45c8c1965a64f680d8fab95998e5238
     environment:
-      - CHROME_HOST=chrome
+      - CHROME_HOST='chrome'
     ports:
       - "8001:8001"
-    links:
-      - chrome
-
-  chrome:
-    image: yukinying/chrome-headless
+    logging:
+      driver: "none"
+  # chrome:
+  #   image: yukinying/chrome-headless
+  selenium:
+    image: selenium/standalone-chrome:2.53.0
+    ports:
+      - "4444:4444"
+    # logging:
+    #   driver: "none"
