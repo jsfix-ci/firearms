@@ -68,7 +68,7 @@
     "sinon": "^1.15.3",
     "sinon-as-promised": "^4.0.3",
     "sinon-chai": "^2.11.0",
-    "so-acceptance": "^6.0.0"
+    "so-acceptance": "ukhomeoffice/so-acceptance#sd-770"
   },
   "pre-commit": [
     "lint",
