@@ -18,29 +18,23 @@ module.exports = {
     validate: ['internationalPhoneNumber', {type: 'maxlength', arguments: [200]}]
   },
   'same-contact-address': {
+    isPageHeading: true,
     mixin: 'radio-group',
     includeInSummary: false,
-    legend: {
-      className: 'visuallyhidden'
-    },
     options: ['yes', 'no'],
     validate: 'required'
   },
   'contact-address': {
+    isPageHeading: true,
     mixin: 'radio-group',
-    validate: 'required',
-    legend: {
-      className: 'visuallyhidden'
-    }
+    validate: 'required'
   },
   'purchase-order': {
+    isPageHeading: true,
     mixin: 'radio-group',
     includeInSummary: false,
     validate: 'required',
-    className: 'form-group',
-    legend: {
-      className: 'visuallyhidden'
-    },
+    className: 'govuk-form-group',
     options: [{
       value: 'Yes',
       toggle: 'purchase-order-number',

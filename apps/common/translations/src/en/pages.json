@@ -1,12 +1,6 @@
 {
-  "choose": {
-    "header": "Choose A Journey"
-  },
   "privacy": {
     "header": "Privacy Notice"
-  },
-  "activity": {
-    "header": "What do you want to do?"
   },
   "postcode": {
     "manual": "Enter address manually"
@@ -18,9 +12,6 @@
       "not-found": "Sorry – we couldn’t find any addresses for that postcode, enter your address manually",
       "cant-connect": "Sorry – we couldn’t connect to the postcode lookup service at this time, enter your address manually"
     }
-  },
-  "storage": {
-    "header": "Addresses added"
   },
   "confirm": {
     "header": "Check your answers",

@@ -14,7 +14,7 @@
   "license": "./LICENSE",
   "scripts": {
     "start": "node server.js",
-    "start:dev": "NODE_ENV=development hof-build watch",
+    "start:dev": "NODE_ENV=development hof-build watch --env",
     "dev": "NODE_ENV=development hof-build watch --env",
     "test": "NODE_ENV=test yarn run test:lint && yarn run test:unit",
     "test:unit": "nyc _mocha \"test/_unit/**/*.spec.js\"",
@@ -30,7 +30,7 @@
     "busboy-body-parser": "^0.3.0",
     "debug": "^2.6.8",
     "express": "^4.15.3",
-    "hof": "^19.14.13",
+    "hof": "20.0.0-beta.21",
     "hot-shots": "^5.9.0",
     "i18n-lookup": "^1.0.0",
     "is-pdf": "^1.0.0",

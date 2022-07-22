@@ -8,6 +8,7 @@ const existingAuthorityController = require('../common/controllers/existing-auth
 const existingAuthorityBehaviour = require('../common/behaviours/existing-authority-documents-add');
 const supportingDocumentsBehaviour = require('../common/behaviours/supporting-documents-add');
 const resetUploadedDocuments = require('../common/behaviours/reset-on-change');
+const renew = require('./behaviours/renew');
 
 const ammunition = req => _.includes(req.sessionModel.get('weapons-ammunition'), 'ammunition');
 const weapons = req => _.includes(req.sessionModel.get('weapons-ammunition'), 'weapons');
@@ -130,6 +131,7 @@ module.exports = {
       }
     },
     '/handle': {
+      behaviours: [renew],
       fields: [
         'weapons-ammunition'
       ],
@@ -141,6 +143,7 @@ module.exports = {
       }
     },
     '/obtain': {
+      behaviours: [renew],
       fields: [
         'obtain',
         'other-means-details'
@@ -153,6 +156,7 @@ module.exports = {
       }
     },
     '/import': {
+      behaviours: [renew],
       fields: [
         'import',
         'import-country'
@@ -165,6 +169,7 @@ module.exports = {
       }
     },
     '/storage': {
+      behaviours: [renew],
       fields: [
         'stored-on-premises',
         'no-storage-details'
@@ -182,8 +187,8 @@ module.exports = {
       }
     },
     '/storage-address': {
+      behaviours: [formatAddress('storage', 'storage-address'), renew],
       template: 'storage-address',
-      behaviours: formatAddress('storage', 'storage-address'),
       fields: [
         'storage-building',
         'storage-street',
@@ -210,13 +215,12 @@ module.exports = {
         'storage-address'
       ],
       fieldSettings: {
-        legend: {
-          className: 'visuallyhidden'
-        }
+        isPageHeading: true
       },
       locals: { section: 'storage-details', renew: true, step: 'storage-address'}
     },
     '/usage': {
+      behaviours: [renew],
       fields: [
         'usage',
         'other-details'
@@ -275,6 +279,7 @@ module.exports = {
       }
     },
     '/authority-holders': {
+      behaviours: [renew],
       fields: [
         'authority-holders'
       ],
@@ -395,6 +400,7 @@ module.exports = {
       next: '/contact'
     },
     '/contact': {
+      behaviours: [renew],
       fields: [
         'contact-holder',
         'someone-else-name'

@@ -2,11 +2,9 @@
 
 module.exports = {
   'new-club': {
+    isPageHeading: true,
     mixin: 'radio-group',
     includeInSummary: false,
-    legend: {
-      className: 'visuallyhidden'
-    },
     validate: 'required',
     options: [
       'yes',
@@ -126,9 +124,6 @@ module.exports = {
   },
   'location-add-another-address': {
     mixin: 'radio-group',
-    legend: {
-      className: 'visuallyhidden'
-    },
     validate: 'required',
     options: [
       'yes',
@@ -136,6 +131,7 @@ module.exports = {
     ]
   },
   'location-address-category': {
+    isPageHeading: true,
     mixin: 'checkbox-group',
     validate: 'required',
     options: [
@@ -153,13 +149,11 @@ module.exports = {
     options: []
   },
   'purchase-order': {
+    isPageHeading: true,
     mixin: 'radio-group',
     includeInSummary: false,
     validate: 'required',
-    className: 'form-group',
-    legend: {
-      className: 'visuallyhidden'
-    },
+    className: 'govuk-form-group',
     options: [{
       value: 'Yes',
       toggle: 'purchase-order-number',

@@ -35,15 +35,7 @@ $path: "../img/";
 }
 
 h1 {
-  @include bold-24;
-}
-
-.form-date {
-  input {
-    &[id$="-year"] {
-      width: 70px;
-    }
-  }
+  margin-top: inherit;
 }
 
 #handle-weapons-group {
@@ -213,4 +205,20 @@ ul {
   @extend .text;
   @extend .list;
   @extend .list-bullet;
+}
+
+.govuk-input{
+  width: 50%
+}
+
+.govuk-date-input__input {
+  width: 100%
+}
+
+.govuk-textarea{
+  width: 50%
+}
+
+a {
+  @extend .govuk-link;
 }

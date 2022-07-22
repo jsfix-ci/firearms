@@ -12,16 +12,14 @@ function notBothOptions(vals) {
 module.exports = {
   'authority-number': {
     mixin: 'input-text',
-    validate: ['required', {type: 'maxlength', arguments: [200]}]
+    validate: ['required', { type: 'maxlength', arguments: [200] }]
   },
   organisation: {
+    isPageHeading: true,
     mixin: 'radio-group',
     includeInSummary: false,
     validate: 'required',
-    className: 'form-group',
-    legend: {
-      className: 'visuallyhidden'
-    },
+    className: 'govuk-form-group',
     options: [{
       value: 'company',
       toggle: 'company-name',
@@ -56,14 +54,14 @@ module.exports = {
     }
   },
   'company-name': {
-    validate: ['required', {type: 'maxlength', arguments: [200]}],
+    validate: ['required', { type: 'maxlength', arguments: [200] }],
     dependent: {
       field: 'organisation',
       value: 'company'
     }
   },
   'company-house-number': {
-    validate: ['required', {type: 'maxlength', arguments: [200]}],
+    validate: ['required', { type: 'maxlength', arguments: [200] }],
     dependent: {
       field: 'organisation',
       value: 'company'
@@ -105,6 +103,7 @@ module.exports = {
     }
   },
   'weapons-ammunition': {
+    isPageHeading: true,
     mixin: 'checkbox-group',
     validate: 'required',
     options: [
@@ -113,6 +112,7 @@ module.exports = {
     ]
   },
   obtain: {
+    isPageHeading: true,
     mixin: 'checkbox-group',
     validate: 'required',
     options: [
@@ -128,25 +128,23 @@ module.exports = {
     ]
   },
   'other-means-details': {
-    validate: ['required', {type: 'maxlength', arguments: [15000]}],
+    validate: ['required', { type: 'maxlength', arguments: [15000] }],
     dependent: {
       field: 'obtain',
       value: 'other-means'
     }
   },
   'wont-take-details': {
-    validate: ['required', {type: 'maxlength', arguments: [15000]}],
+    validate: ['required', { type: 'maxlength', arguments: [15000] }],
     dependent: {
       field: 'obtain',
       value: 'wont-take-possession'
     }
   },
   import: {
+    isPageHeading: true,
     mixin: 'radio-group',
     validate: 'required',
-    legend: {
-      className: 'visuallyhidden'
-    },
     options: [{
       value: 'yes',
       toggle: 'import-country',
@@ -156,18 +154,16 @@ module.exports = {
     }]
   },
   'import-country': {
-    validate: ['required', {type: 'maxlength', arguments: [200]}],
+    validate: ['required', { type: 'maxlength', arguments: [200] }],
     dependent: {
       field: 'import',
       value: 'yes'
     }
   },
   'stored-on-premises': {
+    isPageHeading: true,
     mixin: 'radio-group',
     validate: 'required',
-    legend: {
-      className: 'visuallyhidden'
-    },
     options: [{
       value: 'true'
     }, {
@@ -178,7 +174,7 @@ module.exports = {
     includeInSummary: false
   },
   'no-storage-details': {
-    validate: ['required', {type: 'maxlength', arguments: [15000]}],
+    validate: ['required', { type: 'maxlength', arguments: [15000] }],
     dependent: {
       field: 'stored-on-premises',
       value: 'false'
@@ -186,6 +182,7 @@ module.exports = {
     includeInSummary: false
   },
   usage: {
+    isPageHeading: true,
     mixin: 'checkbox-group',
     validate: 'required',
     options: [
@@ -203,7 +200,7 @@ module.exports = {
       }]
   },
   'other-details': {
-    validate: ['required', {type: 'maxlength', arguments: [15000]}],
+    validate: ['required', { type: 'maxlength', arguments: [15000] }],
     dependent: {
       field: 'usage',
       value: 'other'
@@ -213,9 +210,6 @@ module.exports = {
   'weapons-types': {
     mixin: 'checkbox-group',
     includeInSummary: false,
-    legend: {
-      className: 'visuallyhidden'
-    },
     validate: ['required', notBothOptions],
     options: [{
       value: 'unspecified',
@@ -265,10 +259,13 @@ module.exports = {
       value: 'projecting-launchers',
       toggle: 'projecting-launchers-quantity',
       child: 'partials/details-summary'
-    }]
+    }],
+    legend: {
+      className: 'govuk-fieldset__legend--m'
+    }
   },
   'weapons-unspecified-details': {
-    validate: ['required', {type: 'maxlength', arguments: [15000]}],
+    validate: ['required', { type: 'maxlength', arguments: [15000] }],
     dependent: {
       field: 'weapons-types',
       value: 'unspecified'
@@ -367,7 +364,7 @@ module.exports = {
     mixin: 'checkbox-group',
     includeInSummary: false,
     legend: {
-      className: 'visuallyhidden'
+      className: 'govuk-fieldset__legend--m'
     },
     validate: ['required', notBothOptions],
     options: [{
@@ -397,7 +394,7 @@ module.exports = {
     }]
   },
   'ammunition-unspecified-details': {
-    validate: ['required', {type: 'maxlength', arguments: [15000]}],
+    validate: ['required', { type: 'maxlength', arguments: [15000] }],
     dependent: {
       field: 'ammunition-types',
       value: 'unspecified'
@@ -445,6 +442,7 @@ module.exports = {
     includeInSummary: false
   },
   'authority-holders': {
+    isPageHeading: true,
     mixin: 'radio-group',
     validate: 'required',
     options: [
@@ -455,22 +453,22 @@ module.exports = {
   },
   'first-authority-holders-name': {
     mixin: 'input-text',
-    validate: ['required', {type: 'maxlength', arguments: [200]}]
+    validate: ['required', { type: 'maxlength', arguments: [200] }]
   },
   'second-authority-holders-name': {
     mixin: 'input-text',
-    validate: ['required', {type: 'maxlength', arguments: [200]}]
+    validate: ['required', { type: 'maxlength', arguments: [200] }]
   },
   'first-authority-dob': date('first-authority-dob', {
     validate: ['required', 'before', 'over18']
   }),
   'first-authority-town-birth': {
     mixin: 'input-text',
-    validate: ['required', {type: 'maxlength', arguments: [200]}]
+    validate: ['required', { type: 'maxlength', arguments: [200] }]
   },
   'first-authority-country-birth': {
     mixin: 'select',
-    validate: ['required', {type: 'maxlength', arguments: [200]}],
+    validate: ['required', { type: 'maxlength', arguments: [200] }],
     className: ['typeahead', 'js-hidden'],
     options: [''].concat(countries)
   },
@@ -479,24 +477,25 @@ module.exports = {
   }),
   'second-authority-town-birth': {
     mixin: 'input-text',
-    validate: ['required', {type: 'maxlength', arguments: [200]}]
+    validate: ['required', { type: 'maxlength', arguments: [200] }]
   },
   'second-authority-country-birth': {
     mixin: 'select',
-    validate: ['required', {type: 'maxlength', arguments: [200]}],
+    validate: ['required', { type: 'maxlength', arguments: [200] }],
     className: ['typeahead', 'js-hidden'],
     options: [''].concat(countries)
   },
   'first-authority-holders-nationality': {
     mixin: 'select',
-    validate: ['required', {type: 'maxlength', arguments: [200]}],
+    validate: ['required', { type: 'maxlength', arguments: [200] }],
     className: ['typeahead', 'js-hidden'],
     options: [''].concat(countries)
   },
   'first-authority-holders-nationality-multi': {
-    mixin: 'checkbox',
+    mixin: 'checkbox-group',
     value: 'first-authority-holders-nationality-multi',
     toggle: 'first-authority-holders-nationality-multi',
+    className: ['govuk-checkboxes__label'],
     includeInSummary: false
   },
   'first-authority-holders-nationality-second': {
@@ -509,17 +508,17 @@ module.exports = {
   },
   'first-authority-holders-postcode': {
     mixin: 'input-text-code',
-    validate: ['required', 'postcode', {type: 'maxlength', arguments: [200]}],
+    validate: ['required', 'postcode', { type: 'maxlength', arguments: [200] }],
     formatter: 'uppercase',
     includeInSummary: false
   },
   'first-authority-holders-address-lookup': {
-    validate: ['required', {type: 'maxlength', arguments: [200]}],
+    validate: ['required', { type: 'maxlength', arguments: [200] }],
     className: 'address'
   },
   'first-authority-holders-address-manual': {
     mixin: 'textarea',
-    validate: ['required', {type: 'maxlength', arguments: [15000]}],
+    validate: ['required', { type: 'maxlength', arguments: [15000] }],
     'ignore-defaults': true,
     formatter: ['trim', 'hyphens'],
     attributes: [{
@@ -530,7 +529,7 @@ module.exports = {
   },
   'second-authority-holders-nationality': {
     mixin: 'select',
-    validate: ['required', {type: 'maxlength', arguments: [200]}],
+    validate: ['required', { type: 'maxlength', arguments: [200] }],
     className: ['typeahead', 'js-hidden'],
     options: [''].concat(countries)
   },
@@ -538,6 +537,7 @@ module.exports = {
     mixin: 'checkbox',
     value: 'second-authority-holders-nationality-multi',
     toggle: 'second-authority-holders-nationality-multi',
+    className: ['govuk-checkboxes__label'],
     includeInSummary: false
   },
   'second-authority-holders-nationality-second': {
@@ -550,17 +550,17 @@ module.exports = {
   },
   'second-authority-holders-postcode': {
     mixin: 'input-text-code',
-    validate: ['required', 'postcode', {type: 'maxlength', arguments: [200]}],
+    validate: ['required', 'postcode', { type: 'maxlength', arguments: [200] }],
     formatter: 'uppercase',
     includeInSummary: false
   },
   'second-authority-holders-address-lookup': {
-    validate: ['required', {type: 'maxlength', arguments: [200]}],
+    validate: ['required', { type: 'maxlength', arguments: [200] }],
     className: 'address'
   },
   'second-authority-holders-address-manual': {
     mixin: 'textarea',
-    validate: ['required', {type: 'maxlength', arguments: [15000]}],
+    validate: ['required', { type: 'maxlength', arguments: [15000] }],
     'ignore-defaults': true,
     formatter: ['trim', 'hyphens'],
     attributes: [{
@@ -570,12 +570,10 @@ module.exports = {
     includeInSummary: true
   },
   'contact-holder': {
+    isPageHeading: true,
     mixin: 'radio-group',
-    validate: ['required', {type: 'maxlength', arguments: [200]}],
-    legend: {
-      className: 'visuallyhidden'
-    },
-    options: ['first', 'second', {value: 'other', toggle: 'someone-else-name', child: 'input-text'}],
+    validate: ['required', { type: 'maxlength', arguments: [200] }],
+    options: ['first', 'second', { value: 'other', toggle: 'someone-else-name', child: 'input-text' }],
     invalidates: [
       'use-different-address',
       'contact-email',
@@ -588,7 +586,7 @@ module.exports = {
     ]
   },
   'someone-else-name': {
-    validate: ['required', {type: 'maxlength', arguments: [200]}],
+    validate: ['required', { type: 'maxlength', arguments: [200] }],
     dependent: {
       field: 'contact-holder',
       value: 'other'
@@ -597,18 +595,18 @@ module.exports = {
   },
   'storage-postcode': {
     mixin: 'input-text-code',
-    validate: ['required', 'postcode', {type: 'maxlength', arguments: [200]}],
+    validate: ['required', 'postcode', { type: 'maxlength', arguments: [200] }],
     formatter: 'uppercase',
     includeInSummary: false
   },
   'storage-address-lookup': {
     className: 'address',
-    validate: ['required', {type: 'maxlength', arguments: [200]}],
+    validate: ['required', { type: 'maxlength', arguments: [200] }],
     includeInSummary: false
   },
   'storage-address-manual': {
     mixin: 'textarea',
-    validate: ['required', {type: 'maxlength', arguments: [15000]}],
+    validate: ['required', { type: 'maxlength', arguments: [15000] }],
     'ignore-defaults': true,
     formatter: ['trim', 'hyphens'],
     attributes: [{
@@ -623,11 +621,12 @@ module.exports = {
   },
   'contact-phone': {
     mixin: 'input-text',
-    validate: ['internationalPhoneNumber', {type: 'maxlength', arguments: [200]}]
+    validate: ['internationalPhoneNumber', { type: 'maxlength', arguments: [200] }]
   },
   'use-different-address': {
+    isPageHeading: true,
     mixin: 'radio-group',
-    validate: ['required', {type: 'maxlength', arguments: [200]}],
+    validate: ['required', { type: 'maxlength', arguments: [200] }],
     options: [{
       value: 'false'
     }, {
@@ -636,12 +635,12 @@ module.exports = {
     includeInSummary: false
   },
   'authority-holder-contact-address-lookup': {
-    validate: ['required', {type: 'maxlength', arguments: [200]}],
+    validate: ['required', { type: 'maxlength', arguments: [200] }],
     className: 'address'
   },
   'authority-holder-contact-address-manual': {
     mixin: 'textarea',
-    validate: ['required', {type: 'maxlength', arguments: [15000]}],
+    validate: ['required', { type: 'maxlength', arguments: [15000] }],
     'ignore-defaults': true,
     formatter: ['trim', 'hyphens'],
     attributes: [{
@@ -652,18 +651,18 @@ module.exports = {
   },
   'contact-postcode': {
     mixin: 'input-text-code',
-    validate: ['required', 'postcode', {type: 'maxlength', arguments: [200]}],
+    validate: ['required', 'postcode', { type: 'maxlength', arguments: [200] }],
     formatter: 'uppercase',
     includeInSummary: false
   },
   'contact-address-lookup': {
-    validate: ['required', {type: 'maxlength', arguments: [200]}],
+    validate: ['required', { type: 'maxlength', arguments: [200] }],
     className: 'address',
     includeInSummary: false
   },
   'contact-address-manual': {
     mixin: 'textarea',
-    validate: ['required', {type: 'maxlength', arguments: [15000]}],
+    validate: ['required', { type: 'maxlength', arguments: [15000] }],
     'ignore-defaults': true,
     formatter: ['trim', 'hyphens'],
     attributes: [{
@@ -672,9 +671,10 @@ module.exports = {
     }],
     includeInSummary: false
   },
-  'storage-add-another-address': {
+  'storageAddresses-add-another': {
+    isPageHeading: true,
     mixin: 'radio-group',
-    validate: ['required', {type: 'maxlength', arguments: [200]}],
+    validate: ['required', { type: 'maxlength', arguments: [200] }],
     includeInSummary: false,
     options: [
       'yes',
@@ -682,6 +682,7 @@ module.exports = {
     ]
   },
   'supporting-document-add': {
+    isPageHeading: true,
     mixin: 'radio-group',
     validate: 'required',
     options: [
@@ -696,13 +697,11 @@ module.exports = {
     }
   },
   'purchase-order': {
+    isPageHeading: true,
     mixin: 'radio-group',
     includeInSummary: false,
     validate: 'required',
-    className: 'form-group',
-    legend: {
-      className: 'visuallyhidden'
-    },
+    className: 'govuk-form-group',
     options: [{
       value: 'Yes',
       toggle: 'purchase-order-number',
@@ -712,7 +711,7 @@ module.exports = {
     }]
   },
   'purchase-order-number': {
-    validate: ['required', {type: 'maxlength', arguments: [200]}],
+    validate: ['required', { type: 'maxlength', arguments: [200] }],
     dependent: {
       field: 'purchase-order',
       value: 'Yes'
@@ -720,7 +719,7 @@ module.exports = {
   },
   'invoice-contact-name': {
     mixin: 'input-text',
-    validate: ['required', {type: 'maxlength', arguments: [200]}]
+    validate: ['required', { type: 'maxlength', arguments: [200] }]
   },
   'invoice-contact-email': {
     mixin: 'input-text',
@@ -728,7 +727,7 @@ module.exports = {
   },
   'invoice-contact-phone': {
     mixin: 'input-text',
-    validate: ['internationalPhoneNumber', {type: 'maxlength', arguments: [200]}]
+    validate: ['internationalPhoneNumber', { type: 'maxlength', arguments: [200] }]
   },
   'invoice-building': {
     validate: ['required', 'notUrl', { type: 'maxlength', arguments: 200 }],
@@ -747,7 +746,7 @@ module.exports = {
     includeInSummary: false
   },
   'invoice-postcodeOrZIPCode': {
-    validate: ['required', {type: 'maxlength', arguments: [200]}],
+    validate: ['required', { type: 'maxlength', arguments: [200] }],
     formatter: ['removespaces', 'uppercase'],
     includeInSummary: false
   },
@@ -765,7 +764,7 @@ module.exports = {
     ]
   },
   'storage-postcodeOrZIPCode': {
-    validate: ['required', {type: 'maxlength', arguments: [200]}],
+    validate: ['required', { type: 'maxlength', arguments: [200] }],
     formatter: ['removespaces', 'uppercase']
   },
   'first-authority-holders-building': {
@@ -785,7 +784,7 @@ module.exports = {
     includeInSummary: false
   },
   'first-authority-holders-postcodeOrZIPCode': {
-    validate: ['required', {type: 'maxlength', arguments: [200]}],
+    validate: ['required', { type: 'maxlength', arguments: [200] }],
     formatter: ['removespaces', 'uppercase'],
     includeInSummary: false
   },
@@ -806,7 +805,7 @@ module.exports = {
     includeInSummary: false
   },
   'second-authority-holders-postcodeOrZIPCode': {
-    validate: ['required', {type: 'maxlength', arguments: [200]}],
+    validate: ['required', { type: 'maxlength', arguments: [200] }],
     formatter: ['removespaces', 'uppercase'],
     includeInSummary: false
   },
@@ -827,7 +826,7 @@ module.exports = {
     includeInSummary: false
   },
   'authority-holder-contact-postcodeOrZIPCode': {
-    validate: ['required', {type: 'maxlength', arguments: [200]}],
+    validate: ['required', { type: 'maxlength', arguments: [200] }],
     formatter: ['removespaces', 'uppercase'],
     includeInSummary: false
   },
@@ -848,7 +847,7 @@ module.exports = {
     includeInSummary: false
   },
   'contact-postcodeOrZIPCode': {
-    validate: ['required', {type: 'maxlength', arguments: [200]}],
+    validate: ['required', { type: 'maxlength', arguments: [200] }],
     formatter: ['removespaces', 'uppercase'],
     includeInSummary: false
   }
