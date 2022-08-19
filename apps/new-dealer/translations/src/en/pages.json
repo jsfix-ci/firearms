@@ -85,15 +85,15 @@
   },
   "storage-postcode": {
     "header": "Where will the prohibited items be stored?",
-    "important": "The information you provide here will replace the information we currently hold."
+    "warning": "The information you provide here will replace the information we currently hold."
   },
   "storage-address-lookup": {
     "header": "Where will the prohibited items be stored?",
-    "important": "The information you provide here will replace the information we currently hold."
+    "warning": "The information you provide here will replace the information we currently hold."
   },
   "storage-address": {
     "header": "Where will the prohibited items be stored?",
-    "important": "The information you provide here will replace the information we currently hold.",
+    "warning": "The information you provide here will replace the information we currently hold.",
     "summary": "Storage addresses"
   },
   "contact-details": {

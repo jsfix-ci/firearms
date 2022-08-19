@@ -8,7 +8,7 @@ const existingAuthorityController = require('../common/controllers/existing-auth
 const existingAuthorityBehaviour = require('../common/behaviours/existing-authority-documents-add');
 const supportingDocumentsBehaviour = require('../common/behaviours/supporting-documents-add');
 const resetUploadedDocuments = require('../common/behaviours/reset-on-change');
-const renew = require('./behaviours/renew');
+const renewOrVaryWarningBehaviour = require('./behaviours/renew-vary-warning');
 
 const ammunition = req => _.includes(req.sessionModel.get('weapons-ammunition'), 'ammunition');
 const weapons = req => _.includes(req.sessionModel.get('weapons-ammunition'), 'weapons');
@@ -131,7 +131,7 @@ module.exports = {
       }
     },
     '/handle': {
-      behaviours: [renew],
+      behaviours: [renewOrVaryWarningBehaviour],
       fields: [
         'weapons-ammunition'
       ],
@@ -143,7 +143,7 @@ module.exports = {
       }
     },
     '/obtain': {
-      behaviours: [renew],
+      behaviours: [renewOrVaryWarningBehaviour],
       fields: [
         'obtain',
         'other-means-details'
@@ -156,7 +156,7 @@ module.exports = {
       }
     },
     '/import': {
-      behaviours: [renew],
+      behaviours: [renewOrVaryWarningBehaviour],
       fields: [
         'import',
         'import-country'
@@ -169,7 +169,7 @@ module.exports = {
       }
     },
     '/storage': {
-      behaviours: [renew],
+      behaviours: [renewOrVaryWarningBehaviour],
       fields: [
         'stored-on-premises',
         'no-storage-details'
@@ -187,7 +187,7 @@ module.exports = {
       }
     },
     '/storage-address': {
-      behaviours: [formatAddress('storage', 'storage-address'), renew],
+      behaviours: [formatAddress('storage', 'storage-address'), renewOrVaryWarningBehaviour],
       template: 'storage-address',
       fields: [
         'storage-building',
@@ -220,7 +220,7 @@ module.exports = {
       locals: { section: 'storage-details', renew: true, step: 'storage-address'}
     },
     '/usage': {
-      behaviours: [renew],
+      behaviours: [renewOrVaryWarningBehaviour],
       fields: [
         'usage',
         'other-details'
@@ -279,7 +279,7 @@ module.exports = {
       }
     },
     '/authority-holders': {
-      behaviours: [renew],
+      behaviours: [renewOrVaryWarningBehaviour],
       fields: [
         'authority-holders'
       ],
@@ -400,7 +400,7 @@ module.exports = {
       next: '/contact'
     },
     '/contact': {
-      behaviours: [renew],
+      behaviours: [renewOrVaryWarningBehaviour],
       fields: [
         'contact-holder',
         'someone-else-name'
