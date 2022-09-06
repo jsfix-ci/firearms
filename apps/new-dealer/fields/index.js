@@ -460,6 +460,7 @@ module.exports = {
     validate: ['required', { type: 'maxlength', arguments: [200] }]
   },
   'first-authority-dob': date('first-authority-dob', {
+    mixin: 'input-date',
     validate: ['required', 'before', 'over18']
   }),
   'first-authority-town-birth': {
@@ -473,6 +474,7 @@ module.exports = {
     options: [''].concat(countries)
   },
   'second-authority-dob': date('second-authority-dob', {
+    mixin: 'input-date',
     validate: ['required', 'before', 'over18']
   }),
   'second-authority-town-birth': {
