@@ -11,21 +11,6 @@ $path: "../img/";
 }
 
 #step {
-  @include core-16;
-  a {
-    display: inline-block;
-    margin-top: $gutter-half;
-    padding-left: 14px;
-    border-bottom: $black 1px solid;
-    color: $black;
-    text-decoration: none;
-    background: url("../images/icons/icon-caret-left.png") no-repeat 0 4px;
-    @include media(mobile) {
-      background-position: 0 1px;
-    }
-    margin-right: 14px;
-  }
-
   span {
     display: inline-block;
     margin-top: $gutter-half;
@@ -204,10 +189,6 @@ ul {
   @extend .text;
   @extend .list;
   @extend .list-bullet;
-}
-
-.govuk-input{
-  width: 50%
 }
 
 .govuk-date-input__input {
