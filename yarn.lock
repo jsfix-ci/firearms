@@ -2971,10 +2971,10 @@ hmac-drbg@^1.0.1:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.1"
 
-hof@20.0.0-beta.35:
-  version "20.0.0-beta.35"
-  resolved "https://registry.yarnpkg.com/hof/-/hof-20.0.0-beta.35.tgz#ec0d32546b908d58ed8addb4430a528f5eb5cebc"
-  integrity sha512-QkuChqD8MpgBL3hmlWKhS+/uzTXhF1qQ38PiuwTN8IO9hLIGq6nO+YIADoYoDvkR2B5AHFkoC8bqXHRGFuqEqQ==
+hof@^20.0.0:
+  version "20.0.3"
+  resolved "https://registry.yarnpkg.com/hof/-/hof-20.0.3.tgz#4ce96258dd0a69b813a3bcd072151fc552e9b6e3"
+  integrity sha512-t5r5IEm6Vh/oAMafKwh5JRWaIsPeC/BAuNiQf7iHOwCl5FRZZiiyI5tCepXvjfcb2Kh32TpaDil6ka/RmbnsTw==
   dependencies:
     aliasify "^2.1.0"
     bluebird "^3.7.2"
@@ -3013,7 +3013,7 @@ hof@20.0.0-beta.35:
     minimatch "^3.0.3"
     minimist "^1.2.6"
     mixwith "^0.1.1"
-    moment "^2.29.2"
+    moment "^2.29.4"
     morgan "^1.10.0"
     mustache "^2.3.0"
     nodemailer "^6.6.3"
@@ -3030,6 +3030,7 @@ hof@20.0.0-beta.35:
     uglify-js "^3.14.3"
     underscore "^1.12.1"
     urijs "^1.19.11"
+    uuid "^8.3.2"
     winston "^3.7.2"
 
 hogan-express-strict@^0.5.4:
@@ -4062,7 +4063,7 @@ module-not-found-error@^1.0.1:
   resolved "https://registry.yarnpkg.com/module-not-found-error/-/module-not-found-error-1.0.1.tgz#cf8b4ff4f29640674d6cdd02b0e3bc523c2bbdc0"
   integrity sha512-pEk4ECWQXV6z2zjhRZUongnLJNUeGQJ3w6OQ5ctGwD+i5o93qjRQUk2Rt6VdNeu3sEP0AB4LcfvdebpxBRVr4g==
 
-moment@^2.29.2, moment@^2.29.4:
+moment@^2.29.4:
   version "2.29.4"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
   integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==

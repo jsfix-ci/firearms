@@ -465,7 +465,8 @@ module.exports = {
   }),
   'first-authority-town-birth': {
     mixin: 'input-text',
-    validate: ['required', { type: 'maxlength', arguments: [200] }]
+    validate: ['required', { type: 'maxlength', arguments: [200] }],
+    className: ['govuk-input', 'govuk-!-width-two-thirds']
   },
   'first-authority-country-birth': {
     mixin: 'select',
@@ -479,7 +480,8 @@ module.exports = {
   }),
   'second-authority-town-birth': {
     mixin: 'input-text',
-    validate: ['required', { type: 'maxlength', arguments: [200] }]
+    validate: ['required', { type: 'maxlength', arguments: [200] }],
+    className: ['govuk-input', 'govuk-!-width-two-thirds']
   },
   'second-authority-country-birth': {
     mixin: 'select',
@@ -512,6 +514,7 @@ module.exports = {
     mixin: 'input-text-code',
     validate: ['required', 'postcode', { type: 'maxlength', arguments: [200] }],
     formatter: 'uppercase',
+    className: ['govuk-input', 'govuk-input--width-10'],
     includeInSummary: false
   },
   'first-authority-holders-address-lookup': {
@@ -554,6 +557,7 @@ module.exports = {
     mixin: 'input-text-code',
     validate: ['required', 'postcode', { type: 'maxlength', arguments: [200] }],
     formatter: 'uppercase',
+    className: ['govuk-input', 'govuk-input--width-10'],
     includeInSummary: false
   },
   'second-authority-holders-address-lookup': {
@@ -599,6 +603,7 @@ module.exports = {
     mixin: 'input-text-code',
     validate: ['required', 'postcode', { type: 'maxlength', arguments: [200] }],
     formatter: 'uppercase',
+    className: ['govuk-input', 'govuk-input--width-10'],
     includeInSummary: false
   },
   'storage-address-lookup': {
@@ -623,7 +628,8 @@ module.exports = {
   },
   'contact-phone': {
     mixin: 'input-text',
-    validate: ['internationalPhoneNumber', { type: 'maxlength', arguments: [200] }]
+    validate: ['internationalPhoneNumber', { type: 'maxlength', arguments: [200] }],
+    className: ['govuk-input', 'govuk-input--width-20']
   },
   'use-different-address': {
     isPageHeading: true,
@@ -655,6 +661,7 @@ module.exports = {
     mixin: 'input-text-code',
     validate: ['required', 'postcode', { type: 'maxlength', arguments: [200] }],
     formatter: 'uppercase',
+    className: ['govuk-input', 'govuk-input--width-10'],
     includeInSummary: false
   },
   'contact-address-lookup': {
@@ -729,7 +736,8 @@ module.exports = {
   },
   'invoice-contact-phone': {
     mixin: 'input-text',
-    validate: ['internationalPhoneNumber', { type: 'maxlength', arguments: [200] }]
+    validate: ['internationalPhoneNumber', { type: 'maxlength', arguments: [200] }],
+    className: ['govuk-input', 'govuk-input--width-20']
   },
   'invoice-building': {
     validate: ['required', 'notUrl', { type: 'maxlength', arguments: 200 }],
@@ -745,11 +753,13 @@ module.exports = {
       { type: 'regex', arguments: /^([^0-9]*)$/ },
       { type: 'maxlength', arguments: 200 }
     ],
+    className: ['govuk-input', 'govuk-!-width-two-thirds'],
     includeInSummary: false
   },
   'invoice-postcodeOrZIPCode': {
     validate: ['required', { type: 'maxlength', arguments: [200] }],
     formatter: ['removespaces', 'uppercase'],
+    className: ['govuk-input', 'govuk-input--width-10'],
     includeInSummary: false
   },
   'storage-building': {
@@ -763,11 +773,13 @@ module.exports = {
     validate: ['required', 'notUrl',
       { type: 'regex', arguments: /^([^0-9]*)$/ },
       { type: 'maxlength', arguments: 200 }
-    ]
+    ],
+    className: ['govuk-input', 'govuk-!-width-two-thirds']
   },
   'storage-postcodeOrZIPCode': {
     validate: ['required', { type: 'maxlength', arguments: [200] }],
-    formatter: ['removespaces', 'uppercase']
+    formatter: ['removespaces', 'uppercase'],
+    className: ['govuk-input', 'govuk-input--width-10']
   },
   'first-authority-holders-building': {
     validate: ['required', 'notUrl', { type: 'maxlength', arguments: 200 }],
@@ -783,11 +795,13 @@ module.exports = {
       { type: 'regex', arguments: /^([^0-9]*)$/ },
       { type: 'maxlength', arguments: 200 }
     ],
+    className: ['govuk-input', 'govuk-!-width-two-thirds'],
     includeInSummary: false
   },
   'first-authority-holders-postcodeOrZIPCode': {
     validate: ['required', { type: 'maxlength', arguments: [200] }],
     formatter: ['removespaces', 'uppercase'],
+    className: ['govuk-input', 'govuk-input--width-10'],
     includeInSummary: false
   },
   'second-authority-holders-building': {
@@ -804,11 +818,13 @@ module.exports = {
       { type: 'regex', arguments: /^([^0-9]*)$/ },
       { type: 'maxlength', arguments: 200 }
     ],
+    className: ['govuk-input', 'govuk-!-width-two-thirds'],
     includeInSummary: false
   },
   'second-authority-holders-postcodeOrZIPCode': {
     validate: ['required', { type: 'maxlength', arguments: [200] }],
     formatter: ['removespaces', 'uppercase'],
+    className: ['govuk-input', 'govuk-input--width-10'],
     includeInSummary: false
   },
   'authority-holder-contact-building': {
@@ -825,11 +841,13 @@ module.exports = {
       { type: 'regex', arguments: /^([^0-9]*)$/ },
       { type: 'maxlength', arguments: 200 }
     ],
+    className: ['govuk-input', 'govuk-!-width-two-thirds'],
     includeInSummary: false
   },
   'authority-holder-contact-postcodeOrZIPCode': {
     validate: ['required', { type: 'maxlength', arguments: [200] }],
     formatter: ['removespaces', 'uppercase'],
+    className: ['govuk-input', 'govuk-input--width-10'],
     includeInSummary: false
   },
   'contact-building': {
@@ -846,11 +864,13 @@ module.exports = {
       { type: 'regex', arguments: /^([^0-9]*)$/ },
       { type: 'maxlength', arguments: 200 }
     ],
+    className: ['govuk-input', 'govuk-!-width-two-thirds'],
     includeInSummary: false
   },
   'contact-postcodeOrZIPCode': {
     validate: ['required', { type: 'maxlength', arguments: [200] }],
     formatter: ['removespaces', 'uppercase'],
+    className: ['govuk-input', 'govuk-input--width-10'],
     includeInSummary: false
   }
 };
