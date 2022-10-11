@@ -37,7 +37,7 @@
     "jquery": "^3.3.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
-    "mustache": "^2.3.0",
+    "mustache": "^3.2.1",
     "notifications-node-client": "^5.1.1",
     "typeahead-aria": "^1.0.4",
     "uuid": "^3.1.0"
